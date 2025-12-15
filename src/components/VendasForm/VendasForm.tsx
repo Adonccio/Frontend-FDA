@@ -1,4 +1,6 @@
 import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 interface VendasFormProps {
     onSubmit: (data: any) => Promise<void>;
@@ -70,12 +72,16 @@ export default function VendasForm({ onSubmit, onSuccessClose }: VendasFormProps
 
             <div className="w-75">
                 <label className="form-label">Data da Coleta</label>
-                <input
-                    type="datetime-local"
+
+                <DatePicker
+                    selected={dataColeta}
+                    onChange={setDataColeta}
+                    showTimeSelect
+                    dateFormat="dd/MM/yyyy HH:mm"
+                    timeFormat="HH:mm"
+                    timeIntervals={15}
                     className="form-control"
-                    value={dataColeta}
-                    onChange={(e) => setDataColeta(e.target.value)}
-                    required
+                    onKeyDown={(e) => e.preventDefault()}
                 />
             </div>
 
