@@ -1,0 +1,124 @@
+/* Sidebar Aberto */
+.sidebar {
+    width: 220px;
+    min-height: 100vh;
+    background: #1a3361;
+    transition: width 0.3s ease;
+    border-right: 1px solid #ddd;
+    overflow: hidden;
+}
+
+/* Sidebar colapsada */
+.sidebar.collapsed {
+    width: 70px;
+}
+
+.sidebar .nav-link {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+    transition: justify-content 0.3s;
+}
+
+.sidebar-icon {
+    font-size: 1.3rem;
+    min-width: 24px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+.sidebar.collapsed .sidebar-text {
+    display: none;
+}
+
+.sidebar:not(.collapsed) .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.sidebar-header {
+    margin-top: 40px;
+    margin-bottom: 75px;
+}
+
+.sidebar-header button {
+    color: #d9d5d5;
+}
+
+.sidebar-header .btn-outline-light:hover {
+    background-color: #d9d5d5 !important;
+    color: #000 !important;
+    border-color: #d9d5d5 !important;
+}
+
+
+.nav-link {
+    margin-bottom: 20px;
+}
+
+.sidebar:not(.collapsed) .nav-link span {
+    flex-grow: 1;
+    text-align: center;
+}
+
+
+.sidebar.collapsed .nav-link {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+.sidebar.collapsed .sidebar-icon {
+    margin: 0;
+}
+
+/* Cor fixa para os links */
+.sidebar .nav-item a {
+    color: #d9d5d5 !important;
+    cursor: pointer !important;;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.sidebar .nav-item a:visited,
+.sidebar .nav-item a:active,
+.sidebar .nav-item a:focus {
+    color: inherit;
+    outline: none;
+}
+.sidebar .nav-link {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar .nav-link:hover {
+    background: #d9d5d5;
+    opacity: 0.9;
+    color: #1a3361 !important;
+    border-radius: 4px;
+    transition: background-color 0.7s ease, color 0.2s ease;
+}
+.active-sidebar-item {
+    background-color: #d9d5d5 !important;
+    color: #1a3361 !important;
+    border-radius: 4px;
+}
+
+.active-sidebar-item svg,
+.active-sidebar-item .sidebar-icon {
+    fill: #1a3361 !important;
+    color: #1a3361 !important;
+}
+
+.active-sidebar-item .sidebar-text {
+    color: #1a3361 !important;
+}
+
+.sidebar .nav-link:hover .sidebar-icon {
+    fill: #1a3361 !important;
+    color: #1a3361 !important;
+}

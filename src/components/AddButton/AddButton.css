@@ -1,0 +1,39 @@
+
+.open-modal-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    background-color: #1a3361;
+    border: 1px solid #1a3361;
+    color: white;
+
+    padding: 10px 20px;
+    border-radius: 10px;
+
+    font-weight: 600;
+    font-size: 1rem;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.open-modal-button:hover {
+    background-color: #0d2147;
+    border-color: #0d2147;
+    transform: translateY(-1px);
+}
+
+.open-modal-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26, 51, 97, 0.4);
+}
+
+.open-modal-button:active {
+    transform: translateY(0);
+    background-color: #0a1a36;
+    border-color: #0a1a36;
+}
