@@ -22,7 +22,11 @@ export default function BarConsumoCidade({ data }) {
                 <CartesianGrid />
                 <XAxis dataKey="cidade" />
                 <YAxis />
-                <Tooltip />
+                <Tooltip
+                    formatter={(value: number) =>
+                        `${value} L`
+                    }
+                />
                 <Bar dataKey="volume" fill="#1a3361" />
             </BarChart>
         </ResponsiveContainer>

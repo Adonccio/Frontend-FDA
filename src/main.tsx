@@ -7,6 +7,7 @@ import "./index.css";
 import "./_custom.scss";
 
 import "bootstrap-icons/font/bootstrap-icons.css";
+document.documentElement.setAttribute("data-bs-theme", "light");
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>

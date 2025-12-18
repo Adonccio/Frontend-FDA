@@ -55,7 +55,11 @@ export default function BarConsumoMes({ data, isMediaPrecoMes }: BarConsumoMesPr
                     (dataMax: number) => Math.ceil(dataMax * 1.1)
                 ]} />
 
-                <Tooltip />
+                <Tooltip
+                    formatter={(value: number) =>
+                        `R$ ${value.toFixed(2).replace(".", ",")}`
+                    }
+                />
                 <Bar dataKey="valor" fill="#1a3361" />
             </BarChart>
         </ResponsiveContainer>

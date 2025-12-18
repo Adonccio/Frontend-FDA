@@ -31,7 +31,7 @@ export default function PizzaPostosEstado({ data }) {
                     cx="50%"
                     cy="50%"
                     outerRadius={100}
-                    label={(entry) => `${entry.name} (${entry.value})`}
+                    label={(entry) => `${entry.name}`}
                 >
                     {chartData.map((_, index) => (
                         <Cell key={index} fill={COLORS[index % COLORS.length]} />

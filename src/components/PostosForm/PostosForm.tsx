@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { EstadosCidades } from "../EstadosCidades/EstadosCidades";
 
 interface PostoFormProps {
     onSubmit: (data: { nome: string; cnpj: string; estado: string; cidade: string }) => Promise<void>;
@@ -18,6 +19,13 @@ export default function PostoForm({
     const [success, setSuccess] = useState("");
     const [saving, setSaving] = useState(false);
     const [error, setError] = useState("");
+    const {
+        estados,
+        cidades,
+        fetchCidades,
+        loadingEstados,
+        loadingCidades,
+    } = EstadosCidades ();
 
     function formatCnpjInput(value: string) {
         return value.replace(/\D/g, "").slice(0, 14);
@@ -64,7 +72,6 @@ export default function PostoForm({
             {error && <div className="alert alert-danger">{error}</div>}
 
 
-            {/* Nome + CNPJ */}
             <div className="d-flex gap-3 mb-3">
 
                 <div className="flex-grow-1">
@@ -95,32 +102,56 @@ export default function PostoForm({
 
             </div>
 
-            {/* Estado + Cidade */}
             <div className="d-flex gap-3 mb-3">
                 <div className="flex-grow-1">
                     <label className="form-label fw-bold">Estado</label>
-                    <input
-                        type="text"
-                        className="form-control"
+                    <select
+                        className="form-select primary"
                         value={estado}
-                        onChange={(e) => setEstado(e.target.value)}
+                        onChange={(e) => {
+                            const uf = e.target.value;
+                            setEstado(uf);
+                            setCidade("");
+                            fetchCidades(uf);
+                        }}
                         required
-                    />
+                    >
+                        <option value="">
+                            {loadingEstados ? "Carregando estados..." : "Selecione o estado"}
+                        </option>
+
+                        {estados.map((estado) => (
+                            <option key={estado.id} value={estado.sigla}>
+                                {estado.nome} ({estado.sigla})
+                            </option>
+                        ))}
+                    </select>
                 </div>
 
                 <div className="flex-grow-1">
                     <label className="form-label fw-bold">Cidade</label>
-                    <input
-                        type="text"
-                        className="form-control"
+                    <select
+                        className="form-select"
                         value={cidade}
                         onChange={(e) => setCidade(e.target.value)}
+                        disabled={!estado || loadingCidades}
                         required
-                    />
+                    >
+                        <option value="">
+                            {loadingCidades
+                                ? "Carregando cidades..."
+                                : "Selecione a cidade"}
+                        </option>
+
+                        {cidades.map((cidade) => (
+                            <option key={cidade.id} value={cidade.nome}>
+                                {cidade.nome}
+                            </option>
+                        ))}
+                    </select>
                 </div>
             </div>
 
-            {/* Botão */}
             <div className="d-flex justify-content-center my-3">
                 <button
                     type="submit"

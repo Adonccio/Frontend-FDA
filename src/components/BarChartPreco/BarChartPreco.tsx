@@ -13,7 +13,7 @@ export default function BarChartPreco({ data }) {
 
     const chartData = data.map(item => ({
         tipo: item.tipo_combustivel,
-        preco: Number(item.preco_medio.toFixed(2))
+        preco: "R$" + Number(item.preco_medio.toFixed(2))
     }));
 
     return (
@@ -22,7 +22,11 @@ export default function BarChartPreco({ data }) {
                 <CartesianGrid />
                 <XAxis dataKey="tipo" />
                 <YAxis />
-                <Tooltip />
+                <Tooltip
+                    formatter={(value: number) =>
+                        `R$ ${value.toFixed(2).replace(".", ",")}`
+                    }
+                />
                 <Bar dataKey="preco" fill="#1a3361" />
             </BarChart>
         </ResponsiveContainer>
