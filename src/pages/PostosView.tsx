@@ -26,7 +26,6 @@ export default function PostosView() {
 
     async function loadPosto() {
         try {
-            setLoading(true);
             const data = await PostoAPI.listAll();
             setPostos(data);
         } catch (err) {
