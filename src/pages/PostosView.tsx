@@ -43,6 +43,7 @@ export default function PostosView() {
     async function handleCreate({ nome,  cnpj, cidade, estado }: { nome: string; cnpj: string; cidade: string; estado: string }) {
         try {
             await PostoAPI.create({ nome, cnpj, cidade, estado });
+            await loadPosto();
         } catch (err) {
             throw(err);
         }
