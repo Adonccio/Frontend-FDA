@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { EstadosCidades } from "../EstadosCidades/EstadosCidades";
+import { useEstadosCidades } from "../useEstadosCidades/useEstadosCidades";
 
 interface PostoFormProps {
     onSubmit: (data: { nome: string; cnpj: string; estado: string; cidade: string }) => Promise<void>;
@@ -25,7 +25,7 @@ export default function PostoForm({
         fetchCidades,
         loadingEstados,
         loadingCidades,
-    } = EstadosCidades ();
+    } = useEstadosCidades ();
 
     function formatCnpjInput(value: string) {
         return value.replace(/\D/g, "").slice(0, 14);
