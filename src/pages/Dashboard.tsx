@@ -96,7 +96,7 @@ export default function DashboardPage() {
                 <div className="col-12 col-md-5">
                     <div className="card shadow-sm h-100">
                         <div className="card-header bg-primary text-white text-center">
-                            <h5 className="mb-0">Consumo por Mês</h5>
+                            <h5 className="mb-0">Total Arrecadado por Mês</h5>
                         </div>
                         <div className="card-body">
                             <BarConsumoMes data={mes} />
@@ -127,7 +127,7 @@ export default function DashboardPage() {
                 <div className="col-12 col-md-5">
                     <div className="card shadow-sm h-100">
                         <div className="card-header bg-primary text-white text-center">
-                            <h5 className="mb-0">Postos Por Estado</h5>
+                            <h5 className="mb-0">Quantidade de Postos Por Estado</h5>
                         </div>
                         <div className="card-body">
                             <PizzaPostosEstado data={postosEstado} />
