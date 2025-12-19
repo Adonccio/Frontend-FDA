@@ -39,7 +39,7 @@ export default function ControleRegistrosView() {
 
     const headers: Header[] = [
         { key: "historico_id", label: "ID" },
-        { key: "tp_registro", label: "Tipo Registro" },
+        { key: "tp_registro", label: "Tipo de Registro" },
         { key: "status_registro", label: "Status" },
         {
             key: "data_atualizacao",
